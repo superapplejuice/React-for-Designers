@@ -1,0 +1,109 @@
+.heroBackground {
+  background: url('/wallpaper4.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 920px;
+  position: relative;
+}
+
+.heroBackground svg {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+.heroGroup {
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 150px 50px;
+  text-align: center;
+}
+
+.heroGroup h1 {
+  color: white;
+  font-size: 60px;
+  line-height: 1.2;
+  margin: 0;
+  opacity: 0;
+  /*
+   *  animations  animations  animations  animations
+   *  animations  animations  animations  animations
+   *  animations  animations  animations  animations
+   */
+  /* specify what defined animation to use */
+  animation: HeroAnimation;
+  animation-delay: 0.1s;
+  animation-duration: 3s;
+  /* retain the final state of the element after the animation is completed */
+  animation-fill-mode: forwards;
+  /* how the animation should progress over its duration */
+  animation-timing-function: cubic-bezier(0.2, 0.5, 0.1, 1);
+}
+
+.heroGroup p {
+  /* put all animations in a single line instead of 4 */
+  animation: HeroAnimation 3s cubic-bezier(0.2, 0.5, 0.1, 1) 0.2s forwards;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 30px;
+  line-height: 1.4;
+  opacity: 0;
+}
+
+.heroGroup a {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 32px;
+  text-transform: uppercase;
+  /* animation timings */
+  transition: 0.8s cubic-bezier(0.3, 0.7, 0.3, 1);
+}
+
+.heroGroup a:hover {
+  background: white;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.heroLogos {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-items: center;
+  margin: 40px 0;
+}
+
+@media (max-width: 720px) {
+  .heroGroup {
+    padding: 100px 20px;
+  }
+
+  .heroGroup h1 {
+    font-size: 40px;
+  }
+
+  .heroGroup p {
+    font-size: 24px;
+  }
+
+  .heroLogos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* animations that happen by keyframes/ms */
+@keyframes HeroAnimation {
+
+  /* animations start at 0% */
+  0% {
+    /* initial text position is 20px down */
+    transform: translateY(20px);
+  }
+
+  /* animations end at 100% */
+  100% {
+    opacity: 1;
+    /* final text position is at the original position */
+    transform: translateY(0);
+  }
+}
